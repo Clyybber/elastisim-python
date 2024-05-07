@@ -38,6 +38,7 @@ class NodeState(Enum):
 
 class Node:
     identifier: int = None
+    name: str = None
     type: NodeType = None
     state: NodeState = None
     assigned_jobs: list[Job] = None
@@ -46,6 +47,7 @@ class Node:
 
     def __init__(self, node: dict[str, Any]):
         self.identifier = node['id']
+        self.name = node['name']
         self.type = NodeType(node['type'])
         self.state = NodeState(node['state'])
         self.assigned_jobs = None
